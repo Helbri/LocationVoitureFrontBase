@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accueil</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style/accueil.css" />
+  </head>
+  <body>
+    <!-- header -->
+    <header>
+      <img class="imgLogo" src="pictures/imageVoiture2cv.bmp" alt="" />
+      <a class="barNavLien" href="#">se connecter</a>
+    </header>
+    <!-- formulaire de recherche -->
+    <!-- action="" -->
+    <form id="recherche" action="http://127.0.0.1:8000/api/voitures">
+      <fieldset>
+        <div class="mb-3">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="disabledFieldsetCheck"
+              disabled
+            />
+            <label class="form-check-label" for="disabledFieldsetCheck">
+              Can't check this
+            </label>
+          </div>
+        </div>
+        <label for="modele">Modele</label>
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          id="modele"
+          name="modele"
+        >
+          <option selected>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </fieldset>
+    </form>
+
+    <!-- main -->
+    <main>
+      <h1>Voitures disponibles en ce moment</h1>
+      <!-- fin première carte voiture premier test -->
+      <div class="listeVoituresDisponibles">
+        <div class="container">
+          <div class="row" id="listeVoiture">
+            <!-- partie gauche -->
+            <div class="col-lg-3 col-sm-6 col-12 mt-5">
+              <img
+                class="img-fluid"
+                src="pictures/imageVoiture2cv.bmp"
+                alt=""
+              />
+              <h2>22€/jour</h2>
+            </div>
+            <!-- partie droite -->
+            <div class="col-lg-3 col-sm-6 col-12 mt-5">
+              <div class="row">
+                <div class="col-6">1 Marque</div>
+                <div class="col-6">2 Citroën</div>
+                <div class="col-6">3 Modèle</div>
+                <div class="col-6">4 2CV</div>
+                <div class="col-6">5 Classe</div>
+                <div class="col-6">6 Citadine</div>
+                <div class="col-6">7 Portes</div>
+                <div class="col-6">8 4</div>
+                <div class="col-6">9 Places</div>
+                <div class="col-6">10 4</div>
+                <div class="col-6">11 Carburant</div>
+                <div class="col-6">12 SP 98 ou SP 95</div>
+                <div class="col-6">13 Boîte</div>
+                <div class="col-6">14 Boîte Manuelle</div>
+                <div class="col-6">15 Consommation</div>
+                <div class="col-6">16 5 L / 100 km</div>
+              </div>
+            </div>
+            <!-- partie gauche -->
+            <div class="col-lg-3 col-sm-6 col-12 mt-5">
+              <img
+                class="img-fluid"
+                src="pictures/imageVoiture2cv.bmp"
+                alt=""
+              />
+              <h2>22€/jour</h2>
+            </div>
+            <!-- partie droite -->
+            <div class="col-lg-3 col-sm-6 col-12 mt-5">
+              <div class="row">
+                <div class="col-6">1 Marque</div>
+                <div class="col-6">2 Citroën</div>
+                <div class="col-6">3 Modèle</div>
+                <div class="col-6">4 2CV</div>
+                <div class="col-6">5 Classe</div>
+                <div class="col-6">6 Citadine</div>
+                <div class="col-6">7 Portes</div>
+                <div class="col-6">8 4</div>
+                <div class="col-6">9 Places</div>
+                <div class="col-6">10 4</div>
+                <div class="col-6">11 Carburant</div>
+                <div class="col-6">12 SP 98 ou SP 95</div>
+                <div class="col-6">13 Boîte</div>
+                <div class="col-6">14 Boîte Manuelle</div>
+                <div class="col-6">15 Consommation</div>
+                <div class="col-6">16 5 L / 100 km</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- fin deuxième carte voiture deuxième test -->
+      </div>
+    </main>
+    <!-- footer -->
+    <footer>
+      <nav class="row">
+        <div class="col-4">
+          <h3>L'agence</h3>
+          <ul>
+            <li><a href="#">Qui sommes nous</a></li>
+          </ul>
+        </div>
+        <div class="col-4">
+          <h3>Location de véhicule</h3>
+          <ul>
+            <li><a href="#">Nos véhicules</a></li>
+            <li><a href="#">Calculez votre volume "bagage"</a></li>
+          </ul>
+        </div>
+        <div class="col-4">
+          <h3>Infos pratiques</h3>
+          <ul>
+            <li><a href="#">Foire aux questions</a></li>
+            <li><a href="#">Conditions générales de vente</a></li>
+            <li><a href="#">Contactez nous</a></li>
+          </ul>
+        </div>
+      </nav>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script/api.js"></script>
+  </body>
+</html>
