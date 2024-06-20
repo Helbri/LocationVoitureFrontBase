@@ -1,29 +1,39 @@
 function rechercher(event) {
-  // on empeche l'envoi du formulaire pour éviter le rechargement de la page.
+  // on empêche l'envoi du formulaire pour éviter
+  //le rechargement de la page.
   event.preventDefault();
-  let form = event.currentTarget;
+  let form = event.currentTarget; //permet de récupérer le
+  //formulaire complet qui déclenche l'évènement
 
   // on récupère les données de l'api.
-  fetch(form.action, {
-    accept: "application/ld+json",
-  })
+  fetch(
+    form.action, //permet d'appeler l'api. "form.action"
+    //contient l'adresse.
+    {
+      headers: {
+        Accept: "application/ld+json", //permet de filtrer
+        //le type code qui a le droit d'être renvoyé
+      },
+    }
+  )
     .then((response) => {
-      return response.json();
+      return response.json(); //permet de récupérer la réponse de l'api
     })
     .then((data) => {
-      console.debug(data["hydra:member"]);
-      // Ajout de ces deux lignes pour déboguer
-      console.log("Data:", data);
-      console.log("Keys:", Object.keys(data["hydra:member"][0]));
-      //fin de l'ajout des deux lignes
+      // console.debug(data["hydra:member"]);
       document.querySelector("#listeVoiture").innerHTML = "";
+      //cherche tous le contenu lié à la classe listeVoiture,
+      //et l'efface ensuite
       data["hydra:member"].forEach((element) => {
-        console.log("Element:", element); // Ajout de cette ligne pour afficher tout l'objet element
-        console.log("Couleur:", element.couleur); // Ajout de cette ligne
+        //console.log("Element:", element); // Ajout de cette ligne pour
+        // afficher tout l'objet element console.log("Couleur:", element.couleur);
+        // Ajout de cette ligne
         document.querySelector(
           "#listeVoiture"
-        ).innerHTML += `<div class="col-lg-3 col-sm-6 col-12 mt-5">
-              <img
+        ).innerHTML += `<div class="col-lg-3 col-sm-6 col-12 mt-5"> <!-- à suivre: 
+      élément de html contenant la partie html agrémentée 
+      de variables cherchant les valeurs des différents objets js -->
+      <img
                 class="img-fluid"
                 src="http://127.0.0.1:8000/assets/images/marque/modele/${
                   element.modele.image

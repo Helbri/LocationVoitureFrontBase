@@ -1,36 +1,40 @@
+/* ---HEADER--- */
 header {
-  background-image: url("../pictures/indigo.bmp");
+  background-image: url("../pictures/indigo.bmp"); /*  background: arrière plan*/
+  /*background-image définit l'image l'arrière plant du le header */
 }
 
 .imgLogo {
-  width: 7%;
-  margin: 1%;
+  /* se référère à la classe imgLogo qui est l'image du logo */
+  width: 7%; /* indique la largeur du logo */
+  margin: 1%; /* indique l'épaisseur du margin (marge), épaisseur extérieure de la boite à l'extérieur de la zone de bordure*/
 }
 
 .barNavLien {
-  padding-left: 75%;
+  padding-left: 75%; /* indique une valeur pour le padding (rembourrage), entre la partie contenu et la bordure est de 75% de la place et cela sur la partie gauche de la boîte*/
 }
 
+/* ---FORM RECHERCHE--- */
+form {
+  background-color: rgb(195, 22, 195);
+}
+
+/* ---MAIN--- */
 main {
-  background-color: aquamarine;
-  padding: 5% 0;
+  background-color: aquamarine; /* couleur d'arrière plan */
+  padding: 5% 0; /* indique l'épaisseur du padding (rembourrage), épaisseur intérieure de la boite, entre la bordure et la partie texte/contenu */
   margin: 5%;
 }
 
 h1 {
   width: 26%;
   padding: 0 5%;
-  display: block;
 }
 
-/* .cardAuto {
-  background-color: #50c878;
-  margin: 0% 5%;
-} */
-
+/* ---FOOTER--- */
 footer {
   background-color: rgb(19, 27, 111);
-  margin: 5% 0 0 0;
+  margin: 5% 0 0 0; /* détermine que le margin sera de 5% uniquement sur le dessus de la boîte. Semblable en tout point à un margin-top en terme d'effet et ce dernier serait plus court*/
   color: grey;
 }
 nav {
@@ -38,8 +42,8 @@ nav {
 }
 
 h3 {
-  font-size: 150%;
-  height: 30%;
+  font-size: 150%; /* détermine que la taille du h3 doit avoir une police qui fait 150 % de sa taille initiale*/
+  height: 30%; /* détermine la hauteur de l'élément block h3, en dépit du nombre de lignes contenues dedans. */
 }
 
 ul {
@@ -47,14 +51,12 @@ ul {
 }
 
 li {
-  list-style-type: none;
+  list-style-type: none; /* permet d'agir sur l'apparence de la puce de la liste*/
 }
 
-form {
-  background-color: rgb(195, 22, 195);
-}
-
+/* ---@MEDIA--- */
 @media (max-width: 540px) {
+  /* HEADER */
   .imgLogo {
     width: 20%;
     margin: 2%;
@@ -64,6 +66,7 @@ form {
   }
 }
 @media (max-width: 960px) {
+  /* HEADER */
   .imgLogo {
     width: 10%;
     margin: 2%;

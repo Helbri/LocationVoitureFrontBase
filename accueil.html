@@ -1,4 +1,231 @@
 <!DOCTYPE html>
+<html lang="fr">
+  <!-- indique dans quelle langue devrait écrire l'utilisateur -->
+  <head>
+    <!-- balise début de l'entête de page de code -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accueil</title>
+    <!-- titre de la page dans l'onglet -->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- lien vers la page de style nécessaire pour le bon fonctionnement de bootstrap -->
+    <link rel="stylesheet" href="style/accueil.css" />
+    <!-- lien vers la page de style que j'ai rajouté-->
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <!-- balise pour indiquer l'entête de page -->
+      <img class="imgLogo" src="pictures/imageVoiture2cv.bmp" alt="" />
+      <a class="barNavLien" href="#">se connecter</a>
+      <!-- a (ancre) et href sont des éléments indispensables pour un lien hypertexte. # ramène le lien à la page sur laquelle il se trouve quand on clique dessus-->
+    </header>
+    <!-- FIN HEADER -->
+
+    <!-- FORMULAIRE DE RECHERCHE -->
+    <form id="recherche" action="https://127.0.0.1:8000/api/voitures">
+      <!-- id "recherche" renvoie au "recherche" present dans le fichier api.js -->
+      <fieldset>
+        <!-- fieldset regroupe tous les éléments liés au formulaire -->
+        <div class="mb-3">
+          <!-- mb-3 élément bootstrap m->margin, b->bottom 3->valeur 3 (1rem) -->
+          <div class="form-checks">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="disabledFieldsetCheck"
+              disabled
+            />
+            <label class="form-check-label" for="disabledFieldsetCheck">
+              Can't check this
+            </label>
+          </div>
+        </div>
+        <label for="modele">Modele</label>
+        <!-- le "for" du label fait lien avec l'id du reste du formulaire du meme nom. Ici "modele" fait référence à l'id "modele" du select qui suit juste après -->
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          id="modele"
+          name="modele"
+        >
+          <!-- class="form-select" est le phrasé bootstrap pour introduire un menu avec une liste d'options déroulante -->
+          <option selected>Open this select menu</option>
+          <!-- option affichée par défaut pour l'utilisateur, ne peux pas être un choix sélectionnable -->
+          <option value="1">One</option>
+          <!-- l'un des choix disponibles pour l'utilisateur -->
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <!-- bouton d'envoi de la requête -->
+        <!-- type submit donne la fonction du bouton et ce qu'il doit faire -->
+        <!-- btn signifie "utilisé comme étant un bouton" et primary a par défaut une couleur bleue -->
+      </fieldset>
+    </form>
+    <!-- FIN FORMULAIRE DE RECHERCHE -->
+
+    <!-- MAIN -->
+    <main>
+      <!-- balise pour indiquer le contenu principal de la page -->
+      <h1>Voitures disponibles en ce moment</h1>
+      <!-- titre de niveau 1, le plus important -->
+      <div class="listeVoituresDisponibles">
+        <!-- indique qu'au dessous nous trouvons toutes les voitures disponibles -->
+        <div class="container">
+          <!-- le terme "container" qui désigne un "conteneur" et qui est un terme bootstrap qui est essentiel ici pour que l'agencement bootstrap se fonctionne bien -->
+          <div class="row" id="listeVoiture">
+            <!-- div qui indique le début du premier encart "voiture" -->
+
+            <!-- DEBUT PREMIERE VOITURE -->
+            <article class="col-6 premVoiture">
+              <div class="row">
+                <!-- partie gauche -->
+                <!-- partie sur la gauche de la carte -->
+                <div class="col-lg-3 col-sm-6 col-12 mt-5">
+                  <!-- éléments bootstrap col->column lg->large sm->small mt->margin bottom, les chiffres pour lg et sm indiquent le nombre de colonnes de la grilles prisent dans le contenant sur un total de 12. Le chiffre associé à mt l'épaisseur du margin sur la partie supérieure de la boîte -->
+                  <img
+                    class="img-fluid"
+                    src="pictures/imageVoiture2cv.bmp"
+                    alt="dessin représentant une 2 chevaux de couleur rouge bordeaux et noir"
+                  /><!-- img est une balise d'image, img-fluid est l'élément bootstrap qui gère le responsive automatique d'une image en fonction de la taille du conteneur -->
+                  <!-- l'attribut src contient le chemin de l'image pour l'afficher -->
+                  <!-- l'attribut alt contient une description textuelle de l'image-->
+                  <h2>22€/jour</h2>
+                  <!-- titre de valeur d'importance 2 -->
+                </div>
+                <!-- partie droite -->
+                <!-- partie sur la droite de la carte -->
+                <div class="col-lg-3 col-sm-6 col-12 mt-5">
+                  <div class="row">
+                    <!-- row: élément bootstrap pour indiquer et obliger le contenu à l'intérieur de la div à être en ligne -->
+                    <!-- au-dessous, en alternance les attributs de la voiture et en face le renseignement correspondant -->
+                    <div class="col-6">1 Marque</div>
+                    <div class="col-6">2 Citroën</div>
+                    <div class="col-6">3 Modèle</div>
+                    <div class="col-6">4 2CV</div>
+                    <div class="col-6">5 Classe</div>
+                    <div class="col-6">6 Citadine</div>
+                    <div class="col-6">7 Portes</div>
+                    <div class="col-6">8 4</div>
+                    <div class="col-6">9 Places</div>
+                    <div class="col-6">10 4</div>
+                    <div class="col-6">11 Carburant</div>
+                    <div class="col-6">12 SP 98 ou SP 95</div>
+                    <div class="col-6">13 Boîte</div>
+                    <div class="col-6">14 Boîte Manuelle</div>
+                    <div class="col-6">15 Consommation</div>
+                    <div class="col-6">16 5 L / 100 km</div>
+                  </div>
+                </div>
+                <!-- fin de la première carte -->
+              </div>
+            </article>
+            <!-- FIN PREMIERE VOITURE -->
+
+            <!-- DEBUT DEUXIEME VOITURE -->
+            <article class="col-6 premVoiture">
+              <div class="row">
+                <!-- partie gauche -->
+                <!-- partie sur la gauche de la carte -->
+                <div class="col-lg-3 col-sm-6 col-12 mt-5">
+                  <!-- éléments bootstrap col->column lg->large sm->small mt->margin bottom, les chiffres pour lg et sm indiquent le nombre de colonnes de la grille prisent dans le contenant sur un total de 12. Le chiffre associé à mt l'épaisseur du margin sur la partie supérieure de la boîte -->
+                  <img
+                    class="img-fluid"
+                    src="pictures/imageVoiture2cv.bmp"
+                    alt="dessin représentant une 2 chevaux de couleur rouge bordeaux et noir"
+                  /><!-- img est une balise d'image, img-fluid est l'élément bootstrap qui gère le responsive automatique d'une image en fonction de la taille du conteneur -->
+                  <!-- l'attribut src contient le chemin de l'image pour l'afficher -->
+                  <!-- l'attribut alt contient une description textuelle de l'image-->
+                  <h2>22€/jour</h2>
+                  <!-- titre de valeur d'importance 2 -->
+                </div>
+                <!-- partie droite -->
+                <!-- partie sur la droite de la carte -->
+                <div class="col-lg-3 col-sm-6 col-12 mt-5">
+                  <div class="row">
+                    <!-- row: élément bootstrap pour indiquer et obliger le contenu à l'intérieur de la div à être en ligne -->
+                    <!-- au-dessous, en alternance les attributs de la voiture et en face le renseignement correspondant -->
+                    <div class="col-6">1 Marque</div>
+                    <div class="col-6">2 Citroën</div>
+                    <div class="col-6">3 Modèle</div>
+                    <div class="col-6">4 2CV</div>
+                    <div class="col-6">5 Classe</div>
+                    <div class="col-6">6 Citadine</div>
+                    <div class="col-6">7 Portes</div>
+                    <div class="col-6">8 4</div>
+                    <div class="col-6">9 Places</div>
+                    <div class="col-6">10 4</div>
+                    <div class="col-6">11 Carburant</div>
+                    <div class="col-6">12 SP 98 ou SP 95</div>
+                    <div class="col-6">13 Boîte</div>
+                    <div class="col-6">14 Boîte Manuelle</div>
+                    <div class="col-6">15 Consommation</div>
+                    <div class="col-6">16 5 L / 100 km</div>
+                  </div>
+                </div>
+                <!-- fin de la première carte -->
+              </div>
+            </article>
+            <!-- FIN DEUXIEME VOITURE -->
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- FIN MAIN -->
+
+    <!-- FOOTER -->
+    <footer>
+      <nav class="row">
+        <!-- balise nav nommée ainsi pour dire qu'elle regroupe des éléments destinés à naviguer dans la page ou ici dans le site -->
+        <div class="col-4">
+          <h3>L'agence</h3>
+          <!-- h3, titre de niveau 3 -->
+          <ul>
+            <!-- ul pour liste non ordonnée (Unordered Liste) -->
+            <li><a href="#">Qui sommes nous</a></li>
+            <!-- li représente un élément de liste -->
+          </ul>
+        </div>
+        <div class="col-4">
+          <h3>Location de véhicule</h3>
+          <ul>
+            <li><a href="#">Nos véhicules</a></li>
+            <li><a href="#">Calculez votre volume "bagage"</a></li>
+          </ul>
+        </div>
+        <div class="col-4">
+          <h3>Infos pratiques</h3>
+          <ul>
+            <li><a href="#">Foire aux questions</a></li>
+            <li><a href="#">Conditions générales de vente</a></li>
+            <li><a href="#">Contactez nous</a></li>
+          </ul>
+        </div>
+      </nav>
+    </footer>
+    <!-- FIN FOOTER -->
+
+    <!-- SCRIPT -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <!-- lien vers le script nécessaire au bon fonctionnement de bootstrap -->
+    <script src="script/api.js"></script>
+    <!-- lien vers ma page de script -->
+    <!-- FIN SCRIPT -->
+  </body>
+</html>
+
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
