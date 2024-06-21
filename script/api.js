@@ -30,47 +30,51 @@ function rechercher(event) {
         // Ajout de cette ligne
         document.querySelector(
           "#listeVoiture"
-        ).innerHTML += `<div class="col-lg-3 col-sm-6 col-12 mt-5"> <!-- à suivre: 
-      élément de html contenant la partie html agrémentée 
-      de variables cherchant les valeurs des différents objets js -->
-      <img
-                class="img-fluid"
-                src="http://127.0.0.1:8000/assets/images/marque/modele/${
-                  element.modele.image
-                }"
-                alt=""
-              />
-              <h2>${element.modele.tarif}€/jour</h2>
-            </div>
-            <div class="col-lg-3 col-sm-6 col-12 mt-5">
+        ).innerHTML += `<!-- DEBUT VOITURE -->
+            <article class="col-lg-6 col-12 premVoiture bordureBrown">
               <div class="row">
-                <div class="col-6">Marque</div>
-                <div class="col-6">${element.modele.marque.nom}</div>
-                <div class="col-6">Modèle</div>
-                <div class="col-6">${element.modele.nom}</div>
-                <div class="col-6">Classe</div>
-                <div class="col-6">${element.modele.type.nom}</div>
-                <div class="col-6">Portes</div>
-                <div class="col-6">${element.modele.nbrPorte}</div>
-                <div class="col-6"> Places</div>
-                <div class="col-6">${element.modele.nombrePlaces}</div>
-                <div class="col-6">Motorisation</div>
-                <div class="col-6">${element.modele.motorisation.nom}</div>
-                <div class="col-6">Boîte</div>
-                <div class="col-6">${
-                  element.modele.boiteAuto ? "Auto" : "Manuelle"
-                }</div>
-                <div class="col-6">15 Consommation</div>
-                <div class="col-6">16 5 L / 100 km</div>
-                <div class="col-6">4 roues motrices</div>
-                <div class="col-6">${
-                  element.modele.quatreRouesMotrices ? "oui" : "non"
-                }</div>
-                <div class="col-6">Capacité coffre</div>
-                <div class="col-6">${element.modele.capaciteCoffre}</div>
-                <div class="col-6">Autonomie</div>
-                <div class="col-6">${element.modele.autonomie}</div>
-            </div>`;
+                <!-- partie gauche carte -->
+                <div class="col-lg-6 col-sm-6 col-12 mt-5 bordureBlue">
+                  <!-- éléments bootstrap col->column lg->large sm->small mt->margin bottom, les chiffres pour lg et sm indiquent le nombre de colonnes de la grilles prisent dans le contenant sur un total de 12. Le chiffre associé à mt l'épaisseur du margin sur la partie supérieure de la boîte -->
+                  <img
+                    class="img-fluid"
+                    src="http://127.0.0.1:8000/assets/images/marque/modele/${element.modele.image}"
+                    alt="dessin représentant une 2 chevaux de couleur rouge bordeaux et noir"
+                  /><!-- img est une balise d'image, img-fluid est l'élément bootstrap qui gère le responsive automatique d'une image en fonction de la taille du conteneur -->
+                  <!-- l'attribut src contient le chemin de l'image pour l'afficher -->
+                  <!-- l'attribut alt contient une description textuelle de l'image-->
+                  <h2>${element.modele.tarif}/jour</h2>
+                  <!-- titre de valeur d'importance 2 -->
+                </div>
+                <!-- fin partie gauche carte -->
+
+                <!-- partie droite carte -->
+                <div class="col-lg-6 col-sm-6 col-12 mt-5 bordureMagenta">
+                  <div class="row">
+                    <!-- row: élément bootstrap pour indiquer et obliger le contenu à l'intérieur de la div à être en ligne -->
+                    <!-- au-dessous, en alternance les attributs de la voiture et en face le renseignement correspondant -->
+                    <div class="col-6 bordureBlack">1 Marque</div>
+                    <div class="col-6 bordureBlack">${element.modele.marque.nom}</div>
+                    <div class="col-6 bordureBlack">3 Modèle</div>
+                    <div class="col-6 bordureBlack">${element.modele.nom}</div>
+                    <div class="col-6 bordureBlack">5 Classe</div>
+                    <div class="col-6 bordureBlack">${element.modele.type.nom}</div>
+                    <div class="col-6 bordureBlack">7 Portes</div>
+                    <div class="col-6 bordureBlack">${element.modele.nbrPorte}</div>
+                    <div class="col-6 bordureBlack">9 Places</div>
+                    <div class="col-6 bordureBlack">${element.modele.nombrePlaces}</div>
+                    <div class="col-6 bordureBlack">11 Carburant</div>
+                    <div class="col-6 bordureBlack">12 SP 98 ou SP 95</div>
+                    <div class="col-6 bordureBlack">13 Boîte</div>
+                    <div class="col-6 bordureBlack">14 Boîte Manuelle</div>
+                    <div class="col-6 bordureBlack">15 Consommation</div>
+                    <div class="col-6 bordureBlack">16 5 L / 100 km</div>
+                  </div>
+                </div>
+                <!-- fin partie droite carte -->
+              </div>
+            </article>
+            <!-- FIN VOITURE -->`;
       });
     });
 }
