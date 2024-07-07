@@ -31,22 +31,6 @@ h1 {
   padding: 0 5%;
 }
 
-.bordureBlack {
-  border: black solid 1px;
-}
-
-.bordureMagenta {
-  border: magenta solid 1px;
-}
-
-.bordureBlue {
-  border: blue solid 1px;
-}
-
-.bordureBrown {
-  border: brown solid 1px;
-}
-
 /* ---FOOTER--- */
 footer {
   background-color: rgb(19, 27, 111);
