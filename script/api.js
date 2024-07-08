@@ -118,6 +118,16 @@ fetch("https://127.0.0.1:8000/api/modeles") //permet d'appeler l'api. plus préc
     selectModele.innerHTML += listeModeles;
   });
 
+/*.then(function (data) {
+    return data["hydra:member"].forEach(function(modele) {
+      const id = modele["@id"].replace("/api/modeles/", "");
+      const name = modele.nom; // cette ligne doit être ici
+
+      listeModeles += `<option value="${id}">${name}</option>`;
+    });
+    selectModele.innerHTML += listeModeles;
+  });*/
+
 fetch("https://127.0.0.1:8000/api/marques") //permet d'appeler l'api. plus précisément la table contenant tous les marques
   .then((response) => response.json())
   .then((data) => {
