@@ -45,19 +45,16 @@ function rechercher(event) {
       return response.json(); //permet de récupérer la réponse de l'api en json
     })
     .then((data) => {
-      //console.debug(data["hydra:member"]);  ------------- enlever /!\ /!\ /!\ /!\ /!\ /!\ /!\ enlever ------------
       document.querySelector("#listeVoiture").innerHTML = "";
       //modifie le contenu de l'élément défini par l'id listeVoiture et l'efface
       data["hydra:member"].forEach((element) => {
-        //console.log("Element:", element); // Ajout de cette ligne pour
-        //afficher tout l'objet element console.log("Couleur:", element.couleur);
         document.querySelector(
           "#listeVoiture"
         ).innerHTML += `<!-- DEBUT VOITURE -->
-            <article class="col-lg-6 col-12 premVoiture bordureBrown">
+            <article class="col-lg-6 col-12 premVoiture">
               <div class="row">
                 <!-- partie gauche carte -->
-                <div class="col-lg-6 col-sm-6 col-12 mt-5 bordureBlue">
+                <div class="col-lg-6 col-sm-6 col-12 mt-5">
                   <!-- éléments bootstrap col->column lg->large sm->small mt->margin bottom, les chiffres pour lg et sm indiquent le nombre de colonnes de la grilles prisent dans le contenant sur un total de 12. Le chiffre associé à mt l'épaisseur du margin sur la partie supérieure de la boîte -->
                   <img
                     class="img-fluid"
@@ -72,26 +69,26 @@ function rechercher(event) {
                 <!-- fin partie gauche carte -->
 
                 <!-- partie droite carte -->
-                <div class="col-lg-6 col-sm-6 col-12 mt-5 bordureMagenta">
+                <div class="col-lg-6 col-sm-6 col-12 mt-5">
                   <div class="row">
                     <!-- row: élément bootstrap pour indiquer et obliger le contenu à l'intérieur de la div à être en ligne -->
                     <!-- au-dessous, en alternance les attributs de la voiture et en face le renseignement correspondant -->
-                    <div class="col-6 bordureBlack">Marque</div>
-                    <div class="col-6 bordureBlack">${element.modele.marque.nom}</div>
-                    <div class="col-6 bordureBlack">Modèle</div>
-                    <div class="col-6 bordureBlack">${element.modele.nom}</div>
-                    <div class="col-6 bordureBlack">Classe</div>
-                    <div class="col-6 bordureBlack">${element.modele.type.nom}</div>
-                    <div class="col-6 bordureBlack">Portes</div>
-                    <div class="col-6 bordureBlack">${element.modele.nbrPorte}</div>
-                    <div class="col-6 bordureBlack">Places</div>
-                    <div class="col-6 bordureBlack">${element.modele.nombrePlaces}</div>
-                    <div class="col-6 bordureBlack">Carburant</div>
-                    <div class="col-6 bordureBlack">${element.modele.motorisation.nom}</div>
-                    <div class="col-6 bordureBlack">Boîte</div>
-                    <div class="col-6 bordureBlack">${element.modele.boiteAuto}</div>
-                    <div class="col-6 bordureBlack">Autonomie</div>
-                    <div class="col-6 bordureBlack">${element.modele.autonomie} km</div>
+                    <div class="col-6">Marque</div>
+                    <div class="col-6">${element.modele.marque.nom}</div>
+                    <div class="col-6">Modèle</div>
+                    <div class="col-6">${element.modele.nom}</div>
+                    <div class="col-6">Classe</div>
+                    <div class="col-6">${element.modele.type.nom}</div>
+                    <div class="col-6">Portes</div>
+                    <div class="col-6">${element.modele.nbrPorte}</div>
+                    <div class="col-6">Places</div>
+                    <div class="col-6">${element.modele.nombrePlaces}</div>
+                    <div class="col-6">Carburant</div>
+                    <div class="col-6">${element.modele.motorisation.nom}</div>
+                    <div class="col-6">Boîte</div>
+                    <div class="col-6">${element.modele.boiteAuto}</div>
+                    <div class="col-6">Autonomie</div>
+                    <div class="col-6">${element.modele.autonomie} km</div>
                   </div>
                 </div>
                 <!-- fin partie droite carte -->
@@ -118,43 +115,21 @@ fetch("https://127.0.0.1:8000/api/modeles") //permet d'appeler l'api. plus préc
     selectModele.innerHTML += listeModeles;
   });
 
-/*.then(function (data) {
-    return data["hydra:member"].forEach(function(modele) {
-      const id = modele["@id"].replace("/api/modeles/", "");
-      const name = modele.nom; // cette ligne doit être ici
-
-      listeModeles += `<option value="${id}">${name}</option>`;
-    });
-    selectModele.innerHTML += listeModeles;
-  });*/
-/*
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    data["hydra:member"].forEach(function (modele) {
-      const id = modele["@id"].replace("/api/modeles/", "");
-      const name = modele.nom;
-      listeModeles += `<option value="${$id}">${$name}</option>`;
-    });
-    selectModele.innerHTML += listeModeles;
-  });*/
-
 fetch("https://127.0.0.1:8000/api/marques") //permet d'appeler l'api. plus précisément la table contenant tous les marques
   .then((response) => response.json())
   .then((data) => {
     data["hydra:member"].forEach((marques) => {
-      const id = marques["@id"].replace("/api/marques/", "");
+      const id = marques["@id"].replace("/api/marques/", ""); //la constante id prends le @id et place sa valeur au sein de la fonction .replace() à l'intérieur des guillemets vides
       const name = marques.nom;
 
-      listeMarques += `<option value="${id}">${name}</option>`;
+      listeMarques += `<option value="${id}">${name}</option>`; //liste Marques ajoute des "option" autant de fois qu'il y a des modèles dans la base de donnée, les uns à la suite des autres
     });
 
-    selectMarque.innerHTML += listeMarques;
+    selectMarque.innerHTML += listeMarques; //la valeur des liste
   });
 
 // ********************************************************************************************************
 
 document
-  .querySelector("#recherche")
-  .addEventListener("submit", rechercher, true);
+  .querySelector("#recherche") //renvoie à l'id recherche
+  .addEventListener("submit", rechercher, true); //écoute si l'événement de soumission a bien été enregistré, et annule "event.preventDefault();" à ce moment là
