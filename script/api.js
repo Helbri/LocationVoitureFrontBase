@@ -10,7 +10,7 @@ let listeModeles = ""; // listeModeles prend temporairement une valeur vide
 const selectMarque = document.querySelector("#marque"); // selectMarque prend la sélection de la balise ayant l'id marque
 let listeMarques = ""; // listeMarques prend temporairement une valeur vide
 
-// FONCTION
+// FONCTIONS
 
 function rechercher(event) {
   // création de la fonction rechercher. Se déclenche si l'événement à écouter décrit en fin de feuille se déclenche
@@ -124,6 +124,18 @@ fetch("https://127.0.0.1:8000/api/modeles") //permet d'appeler l'api. plus préc
       const name = modele.nom; // cette ligne doit être ici
 
       listeModeles += `<option value="${id}">${name}</option>`;
+    });
+    selectModele.innerHTML += listeModeles;
+  });*/
+/*
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    data["hydra:member"].forEach(function (modele) {
+      const id = modele["@id"].replace("/api/modeles/", "");
+      const name = modele.nom;
+      listeModeles += `<option value="${$id}">${$name}</option>`;
     });
     selectModele.innerHTML += listeModeles;
   });*/
